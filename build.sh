@@ -1,6 +1,4 @@
 #!/bin/sh
 
 docker build --rm --pull --tag blink-colorschemes --file ./Dockerfile .
-docker run --rm --detach --name blink-colorschemes blink-colorschemes
-docker cp blink-colorschemes:/themes .
-docker stop blink-colorschemes
+docker run -ti --rm --volume "${PWD}"/themes:/themes blink-colorschemes
